@@ -7,9 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Screen saver starts after 5 minutes of inactivity while Caffeine is active, so a static image never stays on screen.
+
 ### Changed
 
+- Caffeine now keeps the Mac awake without forcing the display on; the display can show the screen saver and sleep normally.
 - Improved Ukrainian translation.
+
+### Removed
+
+- "Keep apps active" option (simulated mouse movement would dismiss the screen saver).
+- Automatic update checks and "Check for Updates", so upstream releases can't replace this fork.
 
 ### Fixed
 

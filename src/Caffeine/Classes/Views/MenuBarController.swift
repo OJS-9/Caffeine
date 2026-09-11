@@ -155,14 +155,7 @@ class MenuBarController: NSObject {
         aboutItem.target = self
         menu.addItem(aboutItem)
 
-        // Update
-        let updatesItem = NSMenuItem(
-            title: String(localized: "Check for Updates..."),
-            action: #selector(checkForUpdates(_:)),
-            keyEquivalent: ""
-        )
-        updatesItem.target = self
-        menu.addItem(updatesItem)
+        // No "Check for Updates": upstream updates would replace this fork
 
         menu.addItem(NSMenuItem.separator())
 
@@ -190,11 +183,6 @@ class MenuBarController: NSObject {
     @objc
     private func showPreferences(_: Any?) {
         self.showPreferencesWindow()
-    }
-
-    @objc
-    private func checkForUpdates(_ sender: Any?) {
-        self.updaterController.checkForUpdates(sender)
     }
 
     private func showPreferencesWindow() {

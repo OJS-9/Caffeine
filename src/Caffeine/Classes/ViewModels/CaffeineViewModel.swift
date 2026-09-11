@@ -109,10 +109,7 @@ class CaffeineViewModel: ObservableObject {
 
         self.isActive = true
         SleepPreventionManager.shared.preventSleep()
-
-        if UserDefaults.standard.bool(forKey: PreferenceKeys.keepAppsActive) {
-            ActivitySimulator.shared.startMonitoring()
-        }
+        ScreenSaverLauncher.shared.startMonitoring()
     }
 
     /// Deactivates Caffeine
@@ -121,22 +118,7 @@ class CaffeineViewModel: ObservableObject {
         self.timeRemaining = nil
         self.isActive = false
         SleepPreventionManager.shared.allowSleep()
-        ActivitySimulator.shared.stopMonitoring()
-    }
-
-    /// Updates activity simulation based on preference
-    func updateActivitySimulation(enabled: Bool) {
-        if enabled {
-            // Trigger the Accessibility permission prompt by posting a no-op event
-            // This prompts for "Events" permission which CGEvent.post requires
-            ActivitySimulator.shared.requestPermission()
-        }
-
-        if enabled, self.isActive {
-            ActivitySimulator.shared.startMonitoring()
-        } else {
-            ActivitySimulator.shared.stopMonitoring()
-        }
+        ScreenSaverLauncher.shared.stopMonitoring()
     }
 
     /// Returns a formatted string for the remaining time
@@ -211,5 +193,4 @@ enum PreferenceKeys {
     static let defaultDuration = "CADefaultDuration"
     static let suppressLaunchMessage = "CASuppressLaunchMessage"
     static let deactivateOnManualSleep = "CADeactivateOnManualSleep"
-    static let keepAppsActive = "CAKeepAppsActive"
 }

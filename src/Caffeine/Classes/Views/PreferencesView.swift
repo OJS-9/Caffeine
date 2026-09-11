@@ -13,7 +13,6 @@ struct PreferencesView: View {
     @AppStorage(PreferenceKeys.activateAtLaunch) private var activateAtLaunch = false
     @AppStorage(PreferenceKeys.suppressLaunchMessage) private var suppressLaunchMessage = false
     @AppStorage(PreferenceKeys.deactivateOnManualSleep) private var deactivateOnManualSleep = false
-    @AppStorage(PreferenceKeys.keepAppsActive) private var keepAppsActive = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -78,23 +77,6 @@ struct PreferencesView: View {
                     set: { self.suppressLaunchMessage = !$0 }
                 ))
                 .font(.system(size: 13))
-
-                Divider()
-                    .padding(.vertical, 4)
-
-                Toggle("Keep apps active", isOn: Binding(
-                    get: { self.keepAppsActive },
-                    set: { newValue in
-                        self.keepAppsActive = newValue
-                        self.viewModel.updateActivitySimulation(enabled: newValue)
-                    }
-                ))
-                .font(.system(size: 13))
-
-                Text("Prevents apps from becoming inactive and the screen saver from starting.")
-                    .font(.system(size: 11))
-                    .foregroundColor(.secondary)
-                    .padding(.leading, 20)
             }
 
             Spacer()

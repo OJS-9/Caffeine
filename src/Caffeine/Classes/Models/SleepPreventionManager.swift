@@ -63,7 +63,8 @@ final class SleepPreventionManager {
         var assertionID: IOPMAssertionID = 0
         let reason = String(localized: "Caffeine prevents sleep") as CFString
         let result = IOPMAssertionCreateWithDescription(
-            kIOPMAssertPreventUserIdleDisplaySleep as CFString,
+            // System sleep only: the display may idle so the screen saver can start
+            kIOPMAssertPreventUserIdleSystemSleep as CFString,
             reason,
             nil as CFString?,
             nil as CFString?,
