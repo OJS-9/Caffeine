@@ -43,3 +43,10 @@
 /* System messages */
 "Caffeine prevents sleep" = "Caffeine prevents sleep";
 
+
+/* Screen saver */
+"Start screen saver after:" = "Start screen saver after:";
+"2 minutes" = "2 minutes";
+"3 minutes" = "3 minutes";
+"Never" = "Never";
+"Your Mac's own screen saver setting still applies if it is shorter." = "Your Mac's own screen saver setting still applies if it is shorter.";

@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Screen saver starts after 5 minutes of inactivity while Caffeine is active, so a static image never stays on screen.
+- Screen saver starts after a chosen period of inactivity while Caffeine is active (2–30 minutes or never; default 5), so a static image never stays on screen.
+- "Start screen saver after" setting in Preferences.
 
 ### Changed
 

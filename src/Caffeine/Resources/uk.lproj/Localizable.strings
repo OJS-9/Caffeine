@@ -43,3 +43,10 @@
 /* System messages */
 "Caffeine prevents sleep" = "Caffeine запобігає переходу в режим сну";
 
+
+/* Screen saver */
+"Start screen saver after:" = "Запускати заставку через:";
+"2 minutes" = "2 хвилини";
+"3 minutes" = "3 хвилини";
+"Never" = "Ніколи";
+"Your Mac's own screen saver setting still applies if it is shorter." = "Якщо власне налаштування заставки на Mac коротше, воно й надалі діє.";

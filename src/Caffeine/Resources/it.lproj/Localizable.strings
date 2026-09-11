@@ -42,3 +42,10 @@
 
 /* System messages */
 "Caffeine prevents sleep" = "Caffeine impedisce lo stop";
+
+/* Screen saver */
+"Start screen saver after:" = "Avvia salvaschermo dopo:";
+"2 minutes" = "2 minuti";
+"3 minutes" = "3 minuti";
+"Never" = "Mai";
+"Your Mac's own screen saver setting still applies if it is shorter." = "L'impostazione del salvaschermo del Mac resta valida se è più breve.";

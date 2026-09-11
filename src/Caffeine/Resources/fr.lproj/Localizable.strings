@@ -43,3 +43,10 @@
 /* System messages */
 "Caffeine prevents sleep" = "Caffeine empêche la mise en veille";
 
+
+/* Screen saver */
+"Start screen saver after:" = "Lancer l'économiseur d'écran après :";
+"2 minutes" = "2 minutes";
+"3 minutes" = "3 minutes";
+"Never" = "Jamais";
+"Your Mac's own screen saver setting still applies if it is shorter." = "Le réglage d'économiseur d'écran du Mac s'applique toujours s'il est plus court.";

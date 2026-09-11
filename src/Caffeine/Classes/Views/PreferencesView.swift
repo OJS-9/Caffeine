@@ -13,6 +13,7 @@ struct PreferencesView: View {
     @AppStorage(PreferenceKeys.activateAtLaunch) private var activateAtLaunch = false
     @AppStorage(PreferenceKeys.suppressLaunchMessage) private var suppressLaunchMessage = false
     @AppStorage(PreferenceKeys.deactivateOnManualSleep) private var deactivateOnManualSleep = false
+    @AppStorage(PreferenceKeys.screenSaverDelay) private var screenSaverDelay = ScreenSaverLauncher.defaultDelayMinutes
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -42,25 +43,53 @@ struct PreferencesView: View {
             .padding(.top, 20)
             .padding(.bottom, 30)
 
-            // Default duration
-            HStack(spacing: 8) {
-                Text("Default duration:")
-                    .font(.system(size: 13))
+            // Durations — labels right-aligned so both pickers share one column
+            Grid(alignment: .leadingFirstTextBaseline, horizontalSpacing: 8, verticalSpacing: 10) {
+                GridRow {
+                    Text("Default duration:")
+                        .font(.system(size: 13))
+                        .gridColumnAlignment(.trailing)
 
-                Picker("", selection: self.$defaultDuration) {
-                    Text("5 minutes").tag(5)
-                    Text("10 minutes").tag(10)
-                    Text("15 minutes").tag(15)
-                    Text("30 minutes").tag(30)
-                    Text("1 hour").tag(60)
-                    Text("2 hours").tag(120)
-                    Text("5 hours").tag(300)
-                    Text("Indefinitely").tag(0)
+                    Picker("", selection: self.$defaultDuration) {
+                        Text("5 minutes").tag(5)
+                        Text("10 minutes").tag(10)
+                        Text("15 minutes").tag(15)
+                        Text("30 minutes").tag(30)
+                        Text("1 hour").tag(60)
+                        Text("2 hours").tag(120)
+                        Text("5 hours").tag(300)
+                        Text("Indefinitely").tag(0)
+                    }
+                    .pickerStyle(.menu)
+                    .frame(width: 180)
                 }
-                .pickerStyle(.menu)
-                .frame(width: 180)
 
-                Spacer()
+                GridRow {
+                    Text("Start screen saver after:")
+                        .font(.system(size: 13))
+
+                    Picker("", selection: self.$screenSaverDelay) {
+                        Text("2 minutes").tag(2)
+                        Text("3 minutes").tag(3)
+                        Text("5 minutes").tag(5)
+                        Text("10 minutes").tag(10)
+                        Text("15 minutes").tag(15)
+                        Text("30 minutes").tag(30)
+                        Text("Never").tag(0)
+                    }
+                    .pickerStyle(.menu)
+                    .frame(width: 180)
+                }
+
+                GridRow {
+                    Color.clear
+                        .gridCellUnsizedAxes([.horizontal, .vertical])
+
+                    Text("Your Mac's own screen saver setting still applies if it is shorter.")
+                        .font(.system(size: 11))
+                        .foregroundColor(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
             }
             .padding(.bottom, 16)
 

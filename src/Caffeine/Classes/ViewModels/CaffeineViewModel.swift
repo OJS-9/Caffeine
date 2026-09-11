@@ -193,4 +193,5 @@ enum PreferenceKeys {
     static let defaultDuration = "CADefaultDuration"
     static let suppressLaunchMessage = "CASuppressLaunchMessage"
     static let deactivateOnManualSleep = "CADeactivateOnManualSleep"
+    static let screenSaverDelay = "CAScreenSaverDelay"
 }

@@ -43,3 +43,10 @@
 /* System messages */
 "Caffeine prevents sleep" = "Caffeine 会阻止睡眠";
 
+
+/* Screen saver */
+"Start screen saver after:" = "启动屏幕保护程序的时间：";
+"2 minutes" = "2分钟";
+"3 minutes" = "3分钟";
+"Never" = "永不";
+"Your Mac's own screen saver setting still applies if it is shorter." = "如果 Mac 自身的屏幕保护程序设置更短，则仍以该设置为准。";

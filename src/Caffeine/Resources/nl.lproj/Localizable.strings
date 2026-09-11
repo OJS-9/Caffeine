@@ -42,3 +42,10 @@
 
 /* System messages */
 "Caffeine prevents sleep" = "Caffeine voorkomt sluimerstand";
+
+/* Screen saver */
+"Start screen saver after:" = "Schermbeveiliging starten na:";
+"2 minutes" = "2 minuten";
+"3 minutes" = "3 minuten";
+"Never" = "Nooit";
+"Your Mac's own screen saver setting still applies if it is shorter." = "De eigen schermbeveiligingsinstelling van de Mac blijft gelden als die korter is.";

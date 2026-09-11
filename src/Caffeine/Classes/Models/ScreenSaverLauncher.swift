@@ -13,14 +13,19 @@ import IOKit
 
 final class ScreenSaverLauncher {
     static let shared = ScreenSaverLauncher()
+    static let defaultDelayMinutes = 5
 
     private static let screenSaverBundleID = "com.apple.ScreenSaver.Engine"
     private static let screenSaverURL = URL(fileURLWithPath: "/System/Library/CoreServices/ScreenSaverEngine.app")
 
     private var checkTimer: Timer?
     private var didLaunchThisIdlePeriod = false
-    private let idleThreshold: TimeInterval = 5 * 60 // seconds of inactivity before starting the screen saver
     private let checkInterval: TimeInterval = 15
+
+    /// Minutes of inactivity before starting the screen saver; 0 means never
+    private var delayMinutes: Int {
+        UserDefaults.standard.object(forKey: PreferenceKeys.screenSaverDelay) as? Int ?? Self.defaultDelayMinutes
+    }
 
     private init() {}
 
@@ -54,7 +59,8 @@ final class ScreenSaverLauncher {
     // MARK: - Private Methods
 
     private func checkAndLaunchIfNeeded() {
-        guard self.getSystemIdleTime() >= self.idleThreshold else {
+        let delayMinutes = self.delayMinutes
+        guard delayMinutes > 0, self.getSystemIdleTime() >= TimeInterval(delayMinutes * 60) else {
             // User is back; allow launching again next time they go idle
             self.didLaunchThisIdlePeriod = false
             return

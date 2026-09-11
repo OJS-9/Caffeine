@@ -43,3 +43,10 @@
 /* System messages */
 "Caffeine prevents sleep" = "Caffeine がスリープを防ぎます";
 
+
+/* Screen saver */
+"Start screen saver after:" = "スクリーンセーバー開始まで:";
+"2 minutes" = "2分";
+"3 minutes" = "3分";
+"Never" = "しない";
+"Your Mac's own screen saver setting still applies if it is shorter." = "Mac 本体のスクリーンセーバー設定の方が短い場合は、そちらが優先されます。";

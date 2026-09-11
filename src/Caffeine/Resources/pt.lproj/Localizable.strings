@@ -42,3 +42,10 @@
 
 /* System messages */
 "Caffeine prevents sleep" = "O Caffeine impede o repouso";
+
+/* Screen saver */
+"Start screen saver after:" = "Iniciar proteção de ecrã após:";
+"2 minutes" = "2 minutos";
+"3 minutes" = "3 minutos";
+"Never" = "Nunca";
+"Your Mac's own screen saver setting still applies if it is shorter." = "A definição de proteção de ecrã do Mac continua a aplicar-se se for mais curta.";

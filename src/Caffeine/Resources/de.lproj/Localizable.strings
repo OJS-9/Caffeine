@@ -43,3 +43,10 @@
 /* System messages */
 "Caffeine prevents sleep" = "Caffeine verhindert den Ruhezustand";
 
+
+/* Screen saver */
+"Start screen saver after:" = "Bildschirmschoner starten nach:";
+"2 minutes" = "2 Minuten";
+"3 minutes" = "3 Minuten";
+"Never" = "Nie";
+"Your Mac's own screen saver setting still applies if it is shorter." = "Die eigene Bildschirmschoner-Einstellung des Mac gilt weiterhin, wenn sie kürzer ist.";
