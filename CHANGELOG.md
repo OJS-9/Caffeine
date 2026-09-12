@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Mac no longer falls asleep while Caffeine is active: the sleep assertion was renewed every 10 seconds but expired after 8, leaving a gap the system could sleep in.
 - Timer no longer stays active and shows negative seconds after the Mac sleeps past the activation period.
 
 ## [1.6.3] - 2026-01-26

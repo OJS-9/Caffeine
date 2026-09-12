@@ -54,12 +54,8 @@ final class SleepPreventionManager {
     private func refreshSleepAssertion() {
         guard self.isUserSessionActive else { return }
 
-        // Release existing assertion
-        if let assertionID = sleepAssertionID {
-            IOPMAssertionRelease(assertionID)
-        }
-
-        // Create new assertion
+        // Create the new assertion BEFORE releasing the old one, and let it outlive the
+        // refresh interval: any uncovered moment lets the system sleep while Caffeine is active
         var assertionID: IOPMAssertionID = 0
         let reason = String(localized: "Caffeine prevents sleep") as CFString
         let result = IOPMAssertionCreateWithDescription(
@@ -69,14 +65,19 @@ final class SleepPreventionManager {
             nil as CFString?,
             nil as CFString?,
             nil as CFString?,
-            8, // Timeout after 8 seconds
+            30, // Expires 30s after the last refresh, so sleep resumes if Caffeine dies
             nil as CFString?,
             &assertionID
         )
 
-        if result == kIOReturnSuccess {
-            self.sleepAssertionID = assertionID
+        guard result == kIOReturnSuccess else { return }
+
+        // New assertion is live; now drop the previous one
+        if let previousAssertionID = sleepAssertionID {
+            IOPMAssertionRelease(previousAssertionID)
         }
+
+        self.sleepAssertionID = assertionID
     }
 
     private func releaseSleepAssertion() {
